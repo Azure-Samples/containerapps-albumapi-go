@@ -13,7 +13,7 @@ ADD . /app
 RUN go build -o main .
 
 # Expose ports to the outside world
-EXPOSE 3500
+EXPOSE 8080
 
 # Command to run the executable
 CMD ["./main"]
