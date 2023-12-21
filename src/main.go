@@ -22,7 +22,7 @@ func main() {
 
 	port, ok := os.LookupEnv("PORT")
 	if !ok {
-		port = "3500"
+		port = "8080"
 	}
 
 	router.HandleFunc("/albums", album.Get).Methods("GET")
