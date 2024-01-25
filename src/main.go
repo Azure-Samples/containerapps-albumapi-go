@@ -2,6 +2,7 @@ package main
 
 import (
 	"album-service/controllers/album"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -22,8 +23,13 @@ func main() {
 
 	port, ok := os.LookupEnv("PORT")
 	if !ok {
-		port = "3500"
+		port = "8080"
 	}
+
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprintf(w, "Access /albums to see the list of albums")
+	})
 
 	router.HandleFunc("/albums", album.Get).Methods("GET")
 
